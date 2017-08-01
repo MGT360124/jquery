@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义插件$.extend()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<ul>
+    <li>封装jq插件分为三种</li>
+    <li>封装方法插件</li>
+    <li>封装函数插件</li>
+    <li>封装选择器插件（基本不用）</li>
+</ul>
+</div>
+<div>
+    <h2>封装方法插件</h2>
+    <p>封装一个方法插件实际是一个对象插件,该类插件首先通过jQuery选择器获取对象</p>
+    <p>并为对象添加方法,然后将方法进行打包,封装成一个插件,这种插件极易调用</p>
+    <p>也很方便的使用jQuery中的选择器,因此成为开发插件的首选</p>
+    <h2>封装函数插件</h2>
+    <p>封装函数插件是一个类级别的插件,该插件的特点是能直接使用jQuery添加静态方法</p>
+    <p>并可以将函数置于jQuery命名空间中，如$.trim()和$.ajax()全局性函数都是以内部插件的形式插入jQuery内核中</p>
+    <p>也很方便的使用jQuery中的选择器,因此成为开发插件的首选</p>
+    <h2>插件的封装原则</h2>
+    <ol>
+        <li>jquery插件命名必须以jQuery.[插件名].js原则，以区分其他js文件</li>
+        <li>如果是对象级别的插件,所有的方法必须依附于jquery.fn对象主体,</li>
+        <li>如果是类级别的插件，所有的方法都应依附于jquery对象</li>
+        <li>在插件的内部,this代表的是jquery选择器所获取的对象,而非传统意义上的对象的引用</li>
+        <li>在插件内部的代码中可以使用this.each()遍历所有的元素</li>
+        <li>无论是对象级别的插件还是类级别的插件结尾处都应以:分号结束,否则在文件压缩有错</li>
+        <li>在编写jquery插件代码中,使用jQuery不去使用$</li>
+        <li>在编写对象插件时，使用jQuery.fn.extend()方法进行功能扩展,</li>
+        <li>对类级别插件,使用jQuery.extend()方法进行扩展</li>
+    </ol>
+</div>
+</body>
+</html>

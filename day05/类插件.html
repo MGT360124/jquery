@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MGT360124</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="jquery.twoAddResult.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#add").on("click",function(){
+                var result = $.addNum($("input[name='text1']").val(),$("input[name='text2']").val());
+//                console.log($("input[name='text1']").val());
+//                console.log($("input[name='text2']").val());
+                $("#result1").text(result);
+            })
+           $("#sub").on("click",function(){
+               var result = $.subNum($("input[name='text3']").val(),$("input[name='text4']").val());
+//               console.log($("input[name='text3']").val());
+//               console.log($("input[name='text4']").val());
+               $("#result2").text(result);
+           })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<input type="text" name="text1">+<input type="text" name="text2">
+    <input type="button" id="add"  value="="><span id="result1"></span><br>
+<input type="text" name="text3">-<input type="text" name="text4">
+    <input type="button" id="sub" value="="><span id="result2"></span>
+
+</div>
+</body>
+</html>

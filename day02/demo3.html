@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>删除事件</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn1").on("click",function(){
+                   $("h2").css("background-color","red");
+            })
+            function theCustom(){//自定义函数
+                $("h2").css("color","#fff");
+            }
+            $(".btn2").on("click",theCustom);
+             $(".btn3").on("click",function(){
+                 //删除所有的绑定事件
+//                 $("input").unbind();
+                 //删除指定的绑定事件
+                 $("input").unbind("click",theCustom);
+             })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <h2>unbind()取消绑定事件</h2>
+   <input type="button" value="事件一" class="btn1">
+    <input type="button" value="事件二" class="btn2">
+    <input type="button" value="删除事件" class="btn3">
+</div>
+</body>
+</html>

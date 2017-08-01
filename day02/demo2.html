@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>事件切换</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+          *{
+              margin: 0;
+              padding: 0;
+              list-style: none;
+              text-decoration:none;
+          }
+        img{
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("h3").hover(
+             function(){
+                $(".wrapper").show(2000);
+            },function(){
+                $(".wrapper").hide(2000);
+             })
+//            或者
+//            $("h2").mouseenter(function(){
+//
+//            })
+//            $("h2").mouseleave(function(){
+//
+//            })
+//             第一次点击图片切换为第二张图片，
+//             第二次点击图片切换为第三张图片，
+//             第三次点击图片切换为第四张图片,
+//               第四次点击图片切换为第一张图片
+//            $("img").toggle(
+//                  function(){
+//                $("img").attr("src","images/2.jpg");
+//                $("img").attr("title",this.src);
+//                },function(){
+//                $("img").attr("src","images/3.jpg");
+//                $("img").attr("title",this.src);
+//                 },function(){
+//                $("img").attr("src","images/4.jpg");
+//                $("img").attr("title",this.src);
+//                 })
+        })
+    </script>
+</head>
+<body>
+<div >
+    <h3>事件切换hover(function(){},function(){})</h3>
+    <p class="wrapper">
+        hover(function(){},function(){})等于mouseenter(function(){})和mouseleave(function(){})的组合
+    </p>
+    <h4>或者toggle(function(){},function(){})在1.9版本被弃用</h4>
+    <p>每次点击后一次执行函数</p>
+         <img src="images/1.jpg">
+</div>
+</body>
+</html>

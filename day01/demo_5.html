@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>删除元素节点</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("h2").on("click", function () {
+                $("li").remove( "li[class='li2']");
+            })
+            $("ul").on("click",function(){
+                $("li").empty();
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>remove([express])</h2>
+    <p>若有参数express,该参数为刷选元素的jQuery表达式，通过该表达式获取指定元素,并进行删除</p>
+<h2>empty()</h2>
+    <p>清空所选元素的页面元素或所有的后代元素</p>
+    <ul>
+        <li class="li1">列表一</li>
+        <li class="li2">列表二</li>
+        <li class="li3">列表三</li>
+    </ul>
+</div>
+</body>
+</html>

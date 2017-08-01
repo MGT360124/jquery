@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>jq表单应用</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+               $(".account").trigger("focus");
+               $(".account").on("focus",function(){
+                   $(this).removeClass("textbtn").addClass("textInit");
+               });
+            $(".account").on("blur",function(){
+
+            })
+//            邮箱格式验证
+            function checkEmail(strEmail){
+                var rep= /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if(!rep.test(strEmail)){
+                    return false;
+                }else{
+                    return true;
+                }
+
+            }
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+   <h2>jq表单应用</h2>
+    <p>jq在表单上的应用是非常重要的，还有专门的表单选择器</p>
+    <form method="post" action="#">
+        <div>
+            邮箱:<input type="text" name="txt" value="MTG360124" class="account">
+            <span class="spnTip"></span>
+            <br>
+            密码:<input type="password" name="password" class="password" >
+            <br>
+            <input type="submit" name="submit" value="提交">
+            <input type="reset" name="reset" value="重置">
+        </div>
+    </form>
+</div>
+</body>
+</html>

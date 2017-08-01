@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>一个元素使用多个animate()动画,队列动画,依次执行</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .content{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".content").on("click",function(){
+                $(this).animate({width:"100px"},"slow")//队列一
+                        .animate({height:"100px"},"slow")//队列二
+                        .animate({width:"50px"},"fast")//队列三
+                        .animate({height:"50px"},"normal")//队列四
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <h2>一个元素使用多个animate()动画,队列动画,依次执行</h2>
+  <div class="content">
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax在jquery中的应用</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+             $(document).ready(function(){
+                 //GET请求
+                 $.ajax({
+                     type:'GET',
+                     url:'service.php?number='+$("selector").val(),
+                     dataType:'json',
+                     success:function(data){
+                         if(data.success){
+                             $("selector").html(data.msg);
+                         }else{
+                             $("selector").html("发生错误"+data.msg);
+                         }
+                     },
+                     error:function(jqXHR){
+                         alert("发生错误"+jqXHR.status)
+                     }
+                 })
+                 //POST请求
+                 $.ajax({
+                     type:'POST',
+                     url:'service.php',
+                     dataType:'json',
+                     data:{
+                         name:$("selector").val(),
+                         number:$("selector").val(),
+                         sex:$("selector").val(),
+                         age:$("selector").val(),
+                     },
+                     success:function(data){
+                         if(data.success){
+                             $("selector").html(data.msg);
+                         }else{
+                             $("selector").html("发生错误"+data.msg);
+                         }
+                     },
+                     error:function(jqXHR){
+                         alert("发生错误"+jqXHR.status)
+                     }
+                 })
+             })
+
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>传统的js中的ajax异步的JavaScriptAndXml</h2>
+</div>
+</body>
+</html>

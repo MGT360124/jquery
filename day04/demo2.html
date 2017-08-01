@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>jq中的load()方法</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $("input").on("click",function(){
+//               $(".divTip").load("b.html",function(){
+//                     alert("数据请求完成")
+//               })
+               //或者
+               $(".divTip ").load("b.html .wrapper",function(){
+                   alert("数据请求完成");
+               })
+           })
+        })
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p>传统的Javascript使用XMLHttpRequest对象异步加载数据</p>
+    <p>jq中可以使用load(url,[data],[callback])</p>
+    <p>url为被加载的页面地址</p>
+    <p>data为发送到服务器的数据,格式为key:value</p>
+    <p>callback为加载完成之后，返回加载页的回调函数</p>
+</div>
+<div >
+    <input type="button" name="button" value="获取数据">
+    <div class="divTip"></div>
+</div>
+</body>
+</html>

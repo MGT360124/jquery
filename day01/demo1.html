@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>添加属性和删除属性</title>
+	<style type="text/css">
+		.img1{
+			border: 1px solid red;
+		}
+	</style>
+<script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".img").click(function(){
+//			var imgSrc=$(".img").attr("src");
+//			$(".wrapper").html("<p>"+imgSrc +"</p>");
+//			$(".wrapper").attr({"src":"images/2.jpg","title":"这是一张图片"});
+//			$(".wrapper").addClass("img1")
+			$(".wrapper").attr("src",function(index){//这种写法，index是$(".wrapper")的索引,
+			// 函数返回的是一个字符串，作为当前元素的属性值
+				return "images/"+ Math.floor(Math.random()*10)+".jpg";
+				$(".wrapper").addClass("img1");
+//				$(".wrapper").removeClass("img1");
+			})
+			$(".wrapper").attr("title","这是一张随机图");
+
+		})
+		$(".wrapper").bind("click",function(){
+			$(this).removeAttr("title");
+		})
+	})
+</script>
+</head>
+<body>
+    <div class="div" >
+		<img class="img" src="images/1.jpg">
+	</div>
+<div >
+	<img  class="wrapper" src="images/0.jpg">
+</div>
+<div id="div" width="200" height="200" ></div>
+</body>
+</html>

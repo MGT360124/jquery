@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>$.each(arrData,function(index,value){})遍历数组</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                function objInit(obj){//初始化选择项
+                    return $(obj).html("<option>请选择</option>");
+                }
+            var arrdata = {//定义一个数组保存相关数据
+                江西省:{
+                    南昌市: ["文港","进贤"],
+                    赣州: ["信丰","李渡"]
+                },
+                福建省:{
+                    龙岩: ["龙岩一区","龙岩二区"],
+                    厦门: ["厦门一区","厦门二区"]
+                },
+                河北省:{
+                    秦皇岛: ["海港区","开发区"],
+                    唐山: ["卢龙","昌黎"]
+                }
+            }
+            //遍历数组对象，增加厂商项
+            $.each(arrdata,function(pF){
+                $("#selF").append("<option>"+pF+"</option>");
+                $("#selF").on("change",function(){
+                    objInit("#selT");//初始化厂商列表项
+                    objInit("#selC");//初始化型号列表项
+                    $.each(arrdata,function(pF,pS){
+//                        console.log(pF);
+//                        console.log(pS);
+                        if($("#selF option:selected").text()== pF){
+                        //遍历数组对象，增加品牌项
+                            $.each(pS,function(pT,pC){
+                                $("#selT").append("<option>"+pT+"</option>");
+                            })
+                            //品牌列表项改变事件
+                            $("#selT").on("change",function(){
+                                objInit("#selC");//初始化型号列表项
+                                //遍历数组对象，增加型号项
+                                $.each(pS,function(pT,pC){
+                                     if($("#selT option:selected").text()==pT){
+                                         $.each(pC,function(index,value){
+                                             $("#selC").append("<option>"+pC[index]+"</option>");
+                                         })
+                                     }
+                                })
+                            })
+                        }
+                    })
+                })
+            })
+            $(".btn").on("click",function(){
+                var strValue="您选择的省为:";
+                strValue += $("#selF option:selected").html();
+                strValue += "&nbsp;您选择的市为:";
+                strValue += $("#selT option:selected").html();
+                strValue += "&nbsp;您选择的区为:";
+                strValue += $("#selC option:selected").html();
+                $(".clsTip").text(strValue);
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div class="clsInt">
+    <h2>下拉列表框事件的应用</h2>
+  省份:<select id="selF"><option>请选择</option></select>
+  市:<select id="selT"><option>请选择</option></select>
+  区县:<select id="selC"><option>请选择</option></select>
+    <input type="button" value="查询" name="check" class="btn" id="Button1">
+</div>
+<div class="clsTip" id="divTip"></div>
+</body>
+</html>

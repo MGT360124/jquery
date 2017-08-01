@@ -1,0 +1,4 @@
+$(this)和this的区别
+this是html元素
+可以通过this.title和this.id设置/获取元素的属性
+而$(this)可以通过$(this).attr()设置/获取元素属性

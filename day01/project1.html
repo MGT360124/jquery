@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>project</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        table{
+            margin :0 auto;
+            text-align: center;
+        }
+      table td,th{
+          padding: 20px;
+      }
+        #imgTip{
+           position: absolute;
+           display: none;
+
+        }
+    </style>
+    <!--<script type="text/javascript" src="jquery-1.12.2.min.js"></script>-->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("table tr:nth-child(odd)").css("background-color","#eee");
+            //全选事件
+           $(".selectAll").on("click",function(){
+              // console.log($(this).attr("checked"));
+               if(this.checked){
+                   $("input[type='checkbox']").attr("checked",true);
+               }else{
+                   $("input[type='checkbox']").attr("checked",false);
+               }
+           })
+            //删除全选的元素事件
+           $(".del").on("click",function(){
+//               console.log($("input[checked='checked']").parentNode);
+               // $("input[checked='checked']:not('.selectAll')").remove();
+               var intL= $("table tr td input[type='checkbox']:not('.selectAll')").length;
+               console.log(intL);
+               if(intL !== 0){
+                   $('table tr td input[type="checkbox"]:not(".selectAll")').each(function(index){
+                    // console.log(index);
+                       console.log(this);
+                       console.log(this.checked);
+                       if(this.checked){
+                           $("table tr[id="+this.value+"]").remove();
+                       }
+                   })
+               }
+           })
+            //小图片鼠标移动事件
+            var x= 5,y =10;
+            $("table tr td img").mousemove(function(e){
+               // console.log(e.pageY);
+//              console.log(e.pageX);
+               $("#imgTip").
+                       attr("src",this.src)
+                       .css({"top":(e.pageY+y)+'px',
+                           "left":(e.pageX+x)+"px"})
+                       .show(400);
+            //小图片鼠标移出事件
+                $("table tr td img").mouseout(function(event){
+                    $("#imgTip").hide();
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+      <table cellspacing="0" cellpadding="0" border="1">
+          <tr>
+              <th>选项</th>
+              <th>编号</th>
+              <th>封面</th>
+              <th>购书人</th>
+              <th>性别</th>
+              <th>购书价</th>
+          </tr>
+          <tr id="0">
+              <td><input type="checkbox" value="0"  ></td>
+              <td>1001</td>
+              <td><img src="images/1.jpg" width="30" height="50"></td>
+              <td>毛国涛</td>
+              <td>男</td>
+              <td>18</td>
+          </tr>
+          <tr id="1">
+              <td><input type="checkbox" value="1"  ></td>
+              <td>1002</td>
+              <td><img src="images/0.jpg" width="30" height="50"></td>
+              <td>毛淑琴</td>
+              <td>女</td>
+              <td>17</td>
+          </tr>
+          <tr>
+              <td>
+                  <input type="checkbox" name="checkbox"   class="selectAll">全选
+              </td>
+              <td colspan="5">
+                  <span class="del">删除</span>
+              </td>
+          </tr>
+      </table>
+
+        <img src="images/1.jpg"id="imgTip">
+
+</div>
+</body>
+</html>

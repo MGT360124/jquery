@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>其他事件one()和trigger()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+//            $(".wrapper").one("click", function () {
+//                   $(this).css("color","red");
+//            })
+            //自动获取文本框的值
+            $(".txt").trigger("select");
+            //自定义事件
+            $(".txt").bind("btn_click",function(){
+                $("#show").text($(this).val());
+            });
+            //自动执行自定义函数
+            $(".txt").trigger("btn_click");
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>one("type",[data],function(){})</h2>
+    <p>为所选元素绑定一个仅执行一次的函数</p>
+    <h2>trigger("type",[data])</h2>
+    <p>前端开发中有时我们希望在DOM加载完成之后，表单的文本框就在选中的状态，或者某个按钮处于焦点中</p>
+</div>
+<div>
+    <input type="text" name="txt" value="毛国涛" class="txt">
+</div>
+<div id="show"></div>
+</body>
+</html>

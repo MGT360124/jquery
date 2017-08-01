@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>停止animate()动画的方法stop()和延迟动画delay()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+             $("input:eq(0)").on("click",function(){
+                $("img").slideToggle(2000);
+            })
+            $("input:eq(1)").on("click",function(){
+                $("img").stop(true,true)
+            })
+            $("input:eq(2)").on("click",function(){
+                $("img").delay(2000)
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+      <h2>
+          停止animate()动画的方法stop()和延迟动画delay()
+      </h2>
+    <p>stop([clearQueue],[gotoEnd])功能是停止所选元素正在执行的动画</p>
+    <p>可选参数clearQueue为布尔值,表示是否停止正在执行的动画</p>
+    <p>可选参数gotoEnd为布尔值,表示是否立即完成正在执行的动画</p>
+    <h2>delay(duration,[queueName])功能是设置一个延时值，推迟后续队列中动画的执行</h2>
+    <p>duration 为推迟动画执行的时间 ,queueName为队列名称</p>
+    <img src="images/1.jpg" width="100" height="200">
+    <input type="button" name="button" value="开始动画">
+    <input type="button" name="button" value="停止动画">
+    <input type="button" name="button" value="延迟动画">
+</div>
+</body>
+</html>

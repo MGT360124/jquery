@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>内部插入节点</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".wrapper").on("click", function () {
+             var $div = $("<div class='add'>动态创建的元素节点</div>");
+ //              $(this).append($div);
+                //或者，添加的是这个函数function返回的内容
+//                $(this).append(function(index){  //参数可选
+//                    return $div;
+//                })
+                //或者使用appendTo()方法.
+//                $div.appendTo($(this));
+                //或者是prepend(),在$(this)的最前面添加$div
+//                $(this).prepend($div);
+                //或者是prepend(function(index,html){//参数可选
+                // })
+                $(this).prepend(function(index){
+                    return $div;
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+  <h2>append(),append(function(index,html){}),prepend(),prepend(function(index,html){}),appendTo()方法插入元素</h2>
+</div>
+</body>
+</html>

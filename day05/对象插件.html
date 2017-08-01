@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MGT360124</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="jquery.liFocusColor.js"></script>
+    <script type="text/javascript">
+        $(function () {
+              $("#ul").liFocusColor();//调用自定义的插件
+            // $("#ul").liFocusColor("red");//传递颜色参数
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h4>自定义的liFocusColor()对象级别的插件的使用</h4>
+    <ul id="ul">
+        <li>jquery插件命名必须以jQuery.[插件名].js原则，以区分其他js文件</li>
+        <li>如果是对象级别的插件,所有的方法必须依附于jquery.fn对象主体,</li>
+        <li>如果是类级别的插件，所有的方法都应依附于jquery对象</li>
+        <li>在插件的内部,this代表的是jquery选择器所获取的对象,而非传统意义上的对象的引用</li>
+        <li>在插件内部的代码中可以使用this.each()遍历所有的元素</li>
+        <li>无论是对象级别的插件还是类级别的插件结尾处都应以:分号结束,否则在文件压缩有错</li>
+        <li>在编写jquery插件代码中,使用jQuery不去使用$</li>
+        <li>在编写对象插件时，使用jQuery.fn.extend()方法进行功能扩展,</li>
+        <li>对类级别插件,使用jQuery.extend()方法进行扩展</li>
+    </ul>
+</div>
+</body>
+</html>

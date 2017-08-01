@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM元素遍历</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+       img{
+           vertical-align: top;
+       }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+               $("h2").on("click",function(){
+                   $("img").each(function(index){
+                       this.title = "第"+index+"幅图片"+this.alt;
+                   })
+               })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <h2>元素遍历each(function(index)) ,index为当前的DOM元素的索引</h2>
+    <img src="images/0.jpg" alt="第0幅图片">
+    <img src="images/1.jpg" alt="第1幅图片">
+    <img src="images/2.jpg" alt="第2幅图片">
+    <img src="images/3.jpg" alt="第3幅图片">
+</div>
+</body>
+</html>

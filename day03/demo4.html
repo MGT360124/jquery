@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出效果fadeIn()和fadeOut(),fadeToggle()和fadeTo()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input:eq(0)").on("click",function(){
+                $("img").fadeIn();
+            })
+            $("input:eq(1)").on("click",function(){
+                $("img").fadeOut();
+            })
+            $("input:eq(2)").on("click",function(){
+                $("img").fadeTo(3000,parseFloat(val),function(){
+                    $(this).css({"border":"1px solid red","padding":"5px"})
+                });
+            })
+            var val
+            $("select").on("change",function(){
+                 val  = $(this).val();
+               // console.log(typeof parseFloat(val));
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>fadeIn(speed,[callback])和fadeOut(speed,[callback])淡入淡出</h2>
+    <h2>fadeTo(speed,opacity,[callback])淡入淡出到指定的透明度</h2>
+    <p>改变元素的透明度实现淡入淡出效果</p>
+    <input type="button" value="无参" name="btn"><br/>
+    <input type="button" value="逻辑参数" name="btn1"><br/>
+    <input type="button" value="动画显示" name="btn2"><br/>
+    <div class="clsImg">
+        <img src="images/1.jpg" width="100" height="200">
+    </div>
+    <select>
+        <option value="0.2">0.2</option>
+        <option value="0.4">0.4</option>
+        <option value="0.6">0.6</option>
+        <option value="0.8">0.8</option>
+        <option value="1">1</option>
+    </select>
+</div>
+</body>
+</html>

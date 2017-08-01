@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>val</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+            list-style-type:none ;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+             $('input[type="button"]').on("click",function(){
+                 var value= $('input[type="text"]').val();
+//               console.log( [0].appendChild());
+                 $(".MGT").html("<li>"+value+"</li>");
+//                 $(".MGT").text(value);
+             })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>val是获取input元素的value值</h2>
+    <div class="content">
+       <form method="post" action="#">
+           <input type="text" name="text" placeholder="名称">
+           <input type="button" name="提交" value="提交">
+       </form>
+    <div >
+        <ul class="MGT">
+
+        </ul>
+    </div>
+    </div>
+</div>
+</body>
+</html>

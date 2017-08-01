@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>getJSON()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+             $("input").on("click",function(){
+                 $.getJSON("data.json",function(data){
+                     $("#divTip").empty();
+                     var strHTML=""//初始化保存内容变量
+                     $.each(data,function(index,value){
+                         strHTML += "姓名:"+value.name+"<br>";
+                         strHTML += "性别:"+value.sex+"<br>";
+                         strHTML += "邮箱:"+value.email+"<hr>";
+                         console.log(value);
+                     })
+                     $("#divTip").html(strHTML);//显示处理后的数据
+                 })
+             })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<p>jq中的全局变量getJSON(url,[data],[callback])</p>
+    <p>url为被加载的页面地址</p>
+    <p>data为发送到服务器的数据,格式为key:value</p>
+    <p>callback为加载完成之后，返回加载页的回调函数</p>
+    <input type="button" value="getJSON获取数据">
+    <div id="divTip" >
+
+    </div>
+</div>
+</body>
+</html>

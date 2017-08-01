@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>动画浏览图片</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .img-li{
+            position: relative;
+            float: left;
+            width:100px;
+            heihgt:100px;
+            padding: 8px;
+            border: 1px solid #7e8c8d;
+            margin: 10px;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        p{
+            text-indent: 1em;
+            cursor: pointer;
+        }
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          $(".img-li").each(function(index){
+                 var $this = $(this);
+                 var $img = $this.find("img");
+                 var arrPic = {};//定义一个对象，存储图片的原始的宽高 和div的宽高;
+                 arrPic.imgW = $img.width();
+                 arrPic.imgH = $img.height();
+                 arrPic.divW = $this.width();
+                 arrPic.divH = $this.height();
+
+
+          })
+        })
+    </script>
+</head>
+<body>
+
+   <div class="img-content">
+       <div class="img-li">
+           <img src="images/0.jpg" >
+           <p>点击放大</p>
+       </div>
+       <div class="img-li">
+           <img src="images/1.jpg" >
+           <p>点击放大</p>
+       </div>
+       <div class="img-li">
+           <img src="images/2.jpg" >
+           <p>点击放大</p>
+       </div>
+       <div class="img-li">
+           <img src="images/3.jpg" >
+           <p>点击放大</p>
+       </div>
+       <div class="img-li">
+           <img src="images/4.jpg" >
+           <p>点击放大</p>
+       </div>
+
+</body>
+</html>

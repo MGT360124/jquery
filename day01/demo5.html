@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>创建元素节点</title>
+    <link href="reset.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+          .add{
+              background-color: red;
+              color:#fff;
+          }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".wrapper").on("click", function () {
+                var div= $("<div class='add'  id='add' >动态添加的元素节点</div>");
+                $(".w1").append(div);
+            });
+            //给动态添加的节点元素添加事件;用
+            // $(selector).delegate("selectorChild","event",function(){
+            // $(this)代表的是当前的子节点;
+            // })
+            $('.w1').delegate("#add","click",function(){
+               // $(this).toggleClass("add");
+                $(this).css("display","none");
+            })
+        })
+    </script>
+</head>
+<body>
+<div  class="w1">
+<h2 class="wrapper">$(html)创建元素节点</h2>
+
+</div>
+</body>
+</html>

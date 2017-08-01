@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>复制节点</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".wrapper").on("click", function () {
+                   $("img").clone().appendTo($(".wrapper"));
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <h2>clone()复制节点，该方法就是复制元素本身，不复制钙元素的任何事件行为，若要复制该元素的行为，则clone(true)</h2>
+    <img src="images/1.jpg">
+</div>
+</body>
+</html>

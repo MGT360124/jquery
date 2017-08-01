@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>外部插入节点</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".wrapper").on("click", function () {
+                var $div = $("<h4>before(content)</h4>");
+               $(this).before($div);
+            })
+        })
+    </script>
+</head>
+<body>
+<div  class="wrapper">
+<h2>外部插入节点的方法</h2>
+    <table cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <td>语法格式</td>
+            <td>参数说明</td>
+            <td>功能描述</td>
+        </tr>
+        <tr>
+            <td>after(content)</td>
+            <td>content为插入目标元素外部后面的内容</td>
+            <td>向所选的元素外部的后面插入内容</td>
+        </tr>
+        <tr>
+            <td>after(function(){})</td>
+            <td>通过function返回插入目标元素外部后面的内容</td>
+            <td>向所选的元素外部的后面插入function函数返回的内容</td>
+        </tr>
+        <tr>
+            <td>before(content)</td>
+            <td>content为插入目标元素外部前面的内容</td>
+            <td>向所选的元素外部的前面插入内容</td>
+        </tr>
+        <tr>
+            <td>before(function(){})</td>
+            <td>通过function返回插入目标元素外部前面的内容</td>
+            <td>向所选的元素外部的前面插入function函数返回的内容</td>
+        </tr>
+        <tr>
+            <td>insetAfter(content)</td>
+            <td>content为插入目标元素外部后面的内容</td>
+            <td>将所选的元素插入另一个指定的元素的外部的后面</td>
+        </tr>
+        <tr>
+            <td>insetBefore(content)</td>
+            <td>content为插入目标元素外部前面的内容</td>
+            <td>将所选的元素插入另一个指定的元素的外部的前面</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画animate()</title>
+    <!-- <link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        #div{
+            width:50px;
+            height: 50px;
+            background-color: #7e8c8d;
+        }
+    </style>
+
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="jquery.easing.min.js"></script>
+    <script src="http://code.jquery.com/color/jquery.color.plus-names-2.1.2.min.js"
+            integrity="sha256-Wp3wC/dKYQ/dCOUD7VUXXp4neLI5t0uUEF1pg0dFnAE=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+           $("#div").on("click",function(){
+               $(this).animate({
+                   width: 'toggle',
+                   height: 'toggle',
+                   paddingLeft:'5px',
+                   backgroundColor:'red',
+               }, {
+                   duration: 5000,
+                   specialEasing: {
+                       width: 'linear',
+                       height: 'easeOutBounce',
+                       paddingLeft:"easeOutBounce",
+                       backgroundColor:"linear"
+                   },
+                   complete: function() {
+                       $(this).after('<div>Animation complete.</div>');
+                   }
+               })
+           })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>自定义动画animate(params,[duration],[easing],[callback])</h2>
+    <p>自定义各种复杂的动画</p>
+    <p>params为制作动画样式的属性样式(css属性)和值集合 使用Camel标记法书写属性名,如paddingLeft而不是padding-left</p>
+    <p>同时颜色动画必须要下载颜色动画插件https://plugins.jquery.com/color/</p>
+    <p>duration为默认的slow或者fast或者normal或者自定义的数字</p>
+    <p>easing为动画插件使用，用于控制动画效果一般有linear和swing</p>
+    <p>callback为动画完成之后的执行的回调函数</p>
+</div>
+<div id="div"></div>
+</body>
+</html>

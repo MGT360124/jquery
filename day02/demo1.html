@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>bind绑定事件</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+            *{
+                margin:0;
+                padding: 0;
+                list-style: none;
+                text-decoration: none;
+            }
+        .show{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+//            $(".wrapper").bind({
+//                click:function(){
+//
+//                },
+//                change:function(){
+//
+//                }
+//            })
+            var message = "这是一个点击事件";
+            $(".wrapper").bind("click",{msg:message},function(event){
+               $(".show").html(event.data.msg).show(3000);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+<h2>bind绑定事件或者用映射方式绑定多个事件</h2>
+
+    <ul>
+        <li> $("selector").bind("type"[data],function(){})，type类型包括</li>
+        <li> blur ,focus,</li>
+        <li>resize, scroll</li>
+        <li>load ,undload,</li>
+        <li>click ,dbclick,</li>
+        <li>鼠标的</li>
+        <li>mousedown,mouseup</li>
+        <li>mousemove ,mouseover ,mouseout,</li>
+        <li>mouseenter, mouseleave</li>
+        <li>表单的</li>
+        <li>change ，select，submit,</li>
+        <li>键盘的</li>
+        <li>keydown ,keypress,keyup,</li>
+        <li>error</li>
+
+    </ul>
+    <p>
+        参数data数据类型为event.data属性值传递给事件对象的额外的数据对象
+    </p>
+    <div class="show">
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+    <style type="text/css">
+       .w1{
+           border:1px solid #000;
+           background-color: red;
+           color:#fff;
+       }
+    </style>
+    <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //jq 1.7以后都建议使用on()
+            $(".wrapper").on("click", function () {
+//                $(this).css("border","1px solid #fff);
+//                $(this).css("background-color","red");
+//                $(this).css("color","#fff");
+                //或者使用addClass();
+                //$(this).addClass("w1");
+                //或者使用toggleClass();
+//                $(this).toggleClass("w1");
+//                 或者
+                this.style.backgroundColor="red";
+               })
+        })
+    </script>
+</head>
+<body>
+<div >
+<h2 class="wrapper">css()元素样式操方法</h2>
+
+</div>
+</body>
+</html>
